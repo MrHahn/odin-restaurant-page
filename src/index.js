@@ -8,6 +8,7 @@ const wrapper = document.querySelector('#content');
 const homeBtn = document.querySelector('.home-btn');
 const menuBtn = document.querySelector('.menu-btn');
 const contactBtn = document.querySelector('.contact-btn');
+const buttons = document.querySelectorAll('button');
 
 (function(){
     const hero = document.createElement('div');
@@ -24,17 +25,41 @@ function clearDiv(){
     wrapper.innerHTML = '';
 }
 
-homeBtn.addEventListener('click', () => {
-    clearDiv();
-    buildHome();
+
+buttons.forEach((item) => {
+    item.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('active'));
+        clearDiv();
+        switch(item.classList[0]) {
+            case 'home-btn':
+                item.classList.add('active');
+                buildHome();
+                break;
+            case 'menu-btn':
+                item.classList.add('active');
+                buildMenu();
+                break;
+            case 'contact-btn':
+                item.classList.add('active');
+                buildContact();
+                break;
+        }
+    });
 })
 
-menuBtn.addEventListener('click', () => {
-    clearDiv();
-    buildMenu();
-})
 
-contactBtn.addEventListener('click', () => {
-    clearDiv();
-    buildContact();
-})
+// homeBtn.addEventListener('click', () => {
+//     clearDiv();
+
+//     buildHome();
+// })
+
+// menuBtn.addEventListener('click', () => {
+//     clearDiv();
+//     buildMenu();
+// })
+
+// contactBtn.addEventListener('click', () => {
+//     clearDiv();
+//     buildContact();
+// })
