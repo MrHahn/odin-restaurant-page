@@ -85,6 +85,7 @@ nav button.active {
 
 #content{
   background: aliceblue;
+  padding: 20px;
 }
 
 div#content > div {
